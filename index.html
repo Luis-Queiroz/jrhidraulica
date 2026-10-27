@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -32,7 +33,6 @@
         <a href="#como-funciona">Como funciona</a>
         <a href="#atendimento">Onde atendemos</a>
         <a href="#contato">Contato</a>
-        <a href="#" class="btn btn--wa btn--sm menu__cta" data-wa>Orçamento</a>
       </nav>
 
       <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
@@ -49,7 +49,7 @@
 
       <div class="container hero__in">
         <div class="hero__txt">
-          <span class="selo reveal"><i></i> Londrina • Cambé • Ibiporã e região</span>
+          <span class="selo reveal"><i></i> Londrina • Cambé • Ibiporã • Região</span>
           <h1 class="reveal" style="--d:.08s">Hidráulica que <em>flui</em>.<br>Sem dor de cabeça.</h1>
           <p class="hero__sub reveal" style="--d:.16s">Instalações, reparos e manutenção hidráulica com capricho e pontualidade. Você chama, a gente resolve.</p>
           <div class="hero__acoes reveal" style="--d:.24s">
@@ -146,12 +146,8 @@
         <img src="img/logo-branco.png" alt="JR Instalações Hidráulicas" class="faixa__logo">
         <div class="faixa__txt">
           <h2>Vazou? Entupiu? Quer instalar?</h2>
-          <p>Fale agora com o Jesimiel e resolva sem enrolação.</p>
+          <p>A gente cuida disso para você, do começo ao fim.</p>
         </div>
-        <a href="#" class="btn btn--branco btn--lg" data-wa>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
-          Chamar no WhatsApp
-        </a>
       </div>
     </section>
 
@@ -161,18 +157,13 @@
         <div class="atend__txt reveal">
           <span class="etiqueta">Onde atendemos</span>
           <h2>Perto de você, em toda a região</h2>
-          <p>Atendimento em Londrina, Cambé, Ibiporã e cidades vizinhas. Não achou a sua? Chame no WhatsApp e confira.</p>
+          <p>Atendimento em Londrina, Cambé, Ibiporã e cidades vizinhas. Não achou a sua cidade? Fale com a gente e confira.</p>
           <div class="cidades">
-            <span>Londrina</span><span>Cambé</span><span>Ibiporã</span><span class="cidades__mais">e região</span>
+            <span>Londrina</span><span>Cambé</span><span>Ibiporã</span><span>Região</span>
           </div>
         </div>
-        <div class="atend__arte reveal" style="--d:.1s" aria-hidden="true">
-          <svg viewBox="0 0 300 300">
-            <circle cx="150" cy="150" r="140" class="r r1"/>
-            <circle cx="150" cy="150" r="100" class="r r2"/>
-            <circle cx="150" cy="150" r="60" class="r r3"/>
-            <path class="pin" d="M150 96c-17 0-31 14-31 31 0 23 31 57 31 57s31-34 31-57c0-17-14-31-31-31zm0 42a11 11 0 1 1 0-22 11 11 0 0 1 0 22z"/>
-          </svg>
+        <div class="atend__mapa reveal" style="--d:.1s">
+          <div id="mapa" role="img" aria-label="Mapa da área de atendimento: Londrina, Cambé e Ibiporã"></div>
         </div>
       </div>
     </section>
@@ -203,7 +194,7 @@
   <footer class="rodape">
     <div class="container rodape__in">
       <img src="img/logo-branco.png" alt="JR Instalações Hidráulicas" class="rodape__logo">
-      <p>Londrina • Cambé • Ibiporã e região</p>
+      <p>Londrina • Cambé • Ibiporã • Região</p>
       <p class="rodape__peq">© <span id="ano">2026</span> JR Instalações Hidráulicas. Todos os direitos reservados.</p>
     </div>
   </footer>
@@ -225,6 +216,7 @@
     <symbol id="i-tank" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 7c0-1.700 3.100-3 7-3s7 1.300 7 3v10c0 1.700-3.100 3-7 3s-7-1.300-7-3zM5 7c0 1.700 3.100 3 7 3s7-1.300 7-3M9 14c1 .8 2 .8 3 0s2-.8 3 0"/></symbol>
   </svg>
 
+  <script src="vendor/leaflet/leaflet.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

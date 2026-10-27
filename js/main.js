@@ -50,3 +50,50 @@ if ("IntersectionObserver" in window) {
 } else {
   itens.forEach(i => i.classList.add("visivel"));
 }
+
+/* Mapa da área de atendimento */
+(function () {
+  const el = document.getElementById("mapa");
+  if (!el || !window.L) return;
+
+  const cidades = [
+    { nome: "Londrina", pos: [-23.3045, -51.1696] },
+    { nome: "Cambé",    pos: [-23.2764, -51.2786] },
+    { nome: "Ibiporã",  pos: [-23.2692, -51.0526] }
+  ];
+
+  const mapa = L.map(el, {
+    scrollWheelZoom: false,       // não "rouba" a rolagem da página
+    dragging: !L.Browser.mobile,  // no celular, o dedo continua rolando a página
+    tap: false
+  });
+
+  // posição inicial: enquadra as três cidades
+  mapa.fitBounds(L.latLngBounds(cidades.map(c => c.pos)), { padding: [70, 70] });
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18,
+    attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a>"
+  }).addTo(mapa);
+
+  const pin = L.divIcon({
+    className: "pin-mapa",
+    html: "<svg viewBox='0 0 34 44' aria-hidden='true'><path d='M17 1C8.700 1 2 7.700 2 16c0 11 15 27 15 27s15-16 15-27C32 7.700 25.300 1 17 1z' fill='#273e6c'/><circle cx='17' cy='16' r='6' fill='#fff'/></svg>",
+    iconSize: [34, 44],
+    iconAnchor: [17, 42]
+  });
+
+  cidades.forEach(c => {
+    L.marker(c.pos, { icon: pin, title: c.nome, keyboard: false })
+      .addTo(mapa)
+      .bindTooltip(c.nome, { permanent: true, direction: "bottom", offset: [0, 2], className: "rotulo-mapa" });
+  });
+
+  const area = L.circle([-23.2837, -51.1668], {
+    radius: 13500, color: "#2f8fe0", weight: 2, dashArray: "6 6",
+    fillColor: "#2f8fe0", fillOpacity: 0.1, interactive: false
+  }).addTo(mapa);
+
+  el.addEventListener("click", () => mapa.scrollWheelZoom.enable());
+  window.addEventListener("load", () => mapa.invalidateSize());
+})();
