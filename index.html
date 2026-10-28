@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JR Instalações Hidráulicas | Londrina, Cambé e Ibiporã</title>
+<meta name="description" content="Instalações hidráulicas em Londrina, Cambé, Ibiporã e região. Diagnóstico preciso, orçamento fechado, garantia no papel.">
+<meta name="theme-color" content="#0a1930">
+<meta property="og:title" content="JR Instalações Hidráulicas">
+<meta property="og:description" content="Diagnóstico preciso, orçamento fechado, garantia no papel. Atendimento em Londrina, Cambé, Ibiporã e região.">
+<!-- DEPLOY STEP: og:image e og:url precisam da URL absoluta do ar -->
+<meta property="og:image" content="assets/hero-ending.jpg">
+<meta property="og:url" content="https://www.SEUDOMINIO.com.br">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>
+:root{
+  --canvas:#0a1930;
+  --panel:#13284a;
+  --panel-2:#0e2140;
+  --accent:#2f8fe0;
+  --accent-hover:#51a6f0;
+  --accent-muted:rgba(47,143,224,.35);
+  --text-secondary:#9fb3d1;
+  --text-primary:#f3f6fb;
+  --border:rgba(159,179,209,.16);
+  --tshadow:0 1px 2px rgba(5,5,10,.95),0 3px 12px rgba(5,5,10,.78),0 10px 44px rgba(5,5,10,.8);
+  --ease-out:cubic-bezier(.16,.84,.44,1);
+  --ease-in-out:cubic-bezier(.65,0,.35,1);
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{
+  margin:0;
+  overflow-x:hidden;
+  overflow-x:clip;
+  background:var(--canvas);
+  color:var(--text-primary);
+  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.01em;
+  line-height:1.02;
+  margin:0;
+}
+.mono{font-family:'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;font-size:.72rem}
+a{color:inherit}
+img{max-width:100%;display:block}
+.skip-link{position:absolute;left:12px;top:-60px;background:var(--accent);color:#06101f;padding:10px 16px;border-radius:8px;z-index:200;transition:top .2s var(--ease-out);text-decoration:none;font-weight:600}
+.skip-link:focus{top:12px}
+
+/* ambient background layer */
+.ambient{position:fixed;inset:0;z-index:0;pointer-events:none;background:
+  radial-gradient(ellipse 80% 50% at 15% 0%, rgba(47,143,224,.10), transparent 60%),
+  radial-gradient(ellipse 70% 50% at 90% 100%, rgba(47,143,224,.08), transparent 60%);
+  animation:ambientDrift 60s ease-in-out infinite alternate;
+}
+@keyframes ambientDrift{from{transform:translateY(0) scale(1)}to{transform:translateY(-2%) scale(1.03)}}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;backdrop-filter:blur(10px);background:linear-gradient(to bottom, rgba(10,25,48,.72), transparent);transition:background .3s var(--ease-out)}
+.nav .brand{display:flex;align-items:center;gap:10px;font-family:'Big Shoulders Display';font-weight:800;font-size:1.15rem;text-decoration:none;color:var(--text-primary)}
+.nav .brand .mark{height:28px;width:auto;object-fit:contain}
+.nav .links{display:flex;gap:28px;align-items:center}
+.nav .links a{text-decoration:none;color:var(--text-secondary);font-size:.92rem;font-weight:500;transition:color .2s}
+.nav .links a:hover{color:var(--text-primary)}
+.nav .cta{background:var(--accent);color:#06101f;padding:10px 18px;border-radius:999px;font-weight:600;font-size:.88rem;text-decoration:none;transition:background .2s var(--ease-out),transform .2s var(--ease-out)}
+.nav .cta:hover{background:var(--accent-hover);transform:translateY(-1px)}
+.nav .menu-btn{display:none;background:none;border:none;color:var(--text-primary);padding:8px}
+@media (max-width:720px){
+  .nav .links{display:none}
+  .nav .menu-btn{display:block}
+}
+
+main{position:relative;z-index:1}
+
+/* ===== HERO ===== */
+.hero{position:relative;height:400vh}
+.hero .stage{position:sticky;top:0;height:100svh;width:100%;overflow:hidden;background:#07131f}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform;transform:translateZ(0)}
+.hero .poster{position:absolute;inset:0;background-size:cover;background-position:center;opacity:1;transition:opacity .5s var(--ease-out)}
+.stage.video-ready .poster{opacity:0}
+.hero .scrim{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 120% 90% at 65% 45%,rgba(10,10,18,0) 30%,rgba(5,10,20,.6) 100%)}
+
+.loader{position:absolute;right:28px;bottom:28px;width:48px;height:48px;z-index:5;color:var(--text-primary);opacity:.9}
+.loader .ring{width:48px;height:48px;transform:rotate(-90deg)}
+.loader circle{transition:stroke-dashoffset .1s linear}
+.video-ready .loader,.video-failed .loader{display:none}
+
+.chevron{position:absolute;right:30px;bottom:30px;width:40px;height:40px;z-index:5;opacity:.7;display:none}
+.video-failed .chevron{display:block}
+
+.band{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 8vw;pointer-events:none;opacity:0}
+.band.align-left{align-items:flex-start;text-align:left}
+.band::before{content:"";position:absolute;inset:-4%;pointer-events:none;opacity:calc(.25 + .75*var(--k,1));background:radial-gradient(ellipse 60% 56% at 28% 50%,rgba(5,10,20,.68) 0%,rgba(5,10,20,.46) 46%,rgba(5,10,20,0) 76%)}
+.band-inner{position:relative;max-width:34ch;text-shadow:var(--tshadow)}
+.band .kicker{color:var(--accent);margin-bottom:14px;display:block}
+.band h2{font-size:clamp(1.9rem,4.4vw,3.4rem);color:var(--text-primary)}
+.band p{font-size:clamp(1rem,1.6vw,1.2rem);color:var(--text-secondary);margin-top:14px;max-width:30ch}
+
+.band .w{display:inline-block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.band .w .w-in{display:inline-block}
+
+/* word-by-word rise-in, driven by --k per band */
+.band.rise .w .w-in{
+  --th:0; --kc:clamp(0,(var(--k,0) - var(--th,0))*2.8,1);
+  opacity:var(--kc);
+  transform:translateY(calc((1 - var(--kc))*22px));
+}
+.band.drift .w .w-in{
+  --kc:clamp(0,(var(--k,0) - var(--th,0))*2.6,1);
+  opacity:var(--kc);
+  transform:translateY(calc((1 - var(--kc))*-20px));
+}
+.band.grid .w .w-in{
+  --kc:clamp(0,(var(--k,0) - var(--th,0))*2.8,1);
+  opacity:var(--kc);
+  transform:translateX(calc((1 - var(--kc))*var(--jx,26px)));
+}
+
+.band .sub{opacity:var(--ks,0);transform:translateY(calc((1 - var(--ks,0))*14px));transition:none}
+.band .cta-row{opacity:var(--kb,0);transform:translateY(calc((1 - var(--kb,0))*10px));margin-top:26px}
+
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#06101f;padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:600;pointer-events:auto;transition:background .22s var(--ease-out),transform .22s var(--ease-out);text-shadow:none;border:none;cursor:pointer;font-size:1rem}
+.btn:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text-primary)}
+.btn.ghost:hover{border-color:var(--accent)}
+@media (pointer:coarse){.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}}
+
+.hero-static-label{position:absolute;left:8vw;bottom:14vh;z-index:3;max-width:30ch;text-shadow:var(--tshadow)}
+
+@media (max-height:560px){.hero .cue,.hero .hud{display:none}}
+
+@media (max-width:720px),
+       (orientation:portrait) and (max-width:1024px),
+       (orientation:portrait) and (pointer:coarse),
+       (orientation:landscape) and (pointer:coarse) and (max-height:560px),
+       (prefers-reduced-motion:reduce){
+  .hero{height:100svh}
+}
+
+/* ===== SECTIONS BELOW ===== */
+section{position:relative;padding:min(14vh,120px) 8vw}
+.section-inner{max-width:1180px;margin:0 auto}
+.kicker{color:var(--accent);display:block;margin-bottom:12px}
+.section-title{font-size:clamp(1.8rem,3.4vw,2.6rem);max-width:18ch}
+.section-lede{color:var(--text-secondary);max-width:58ch;margin-top:16px;font-size:1.05rem}
+
+.in{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.in.visible,.stagger.visible .in{opacity:1;transform:translateY(0)}
+.stagger .in{transition-delay:calc(var(--i,0) * 90ms)}
+.stagger.settled .in{transition-delay:0s !important}
+
+/* Serviços */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.service-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:26px 24px}
+.service-card .icon-badge{width:48px;height:48px;border-radius:12px;background:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.service-card .icon-badge svg{width:24px;height:24px;stroke:#06101f}
+.service-card h3{font-size:1.1rem;margin-bottom:8px}
+.service-card p{color:var(--text-secondary);font-size:.92rem;margin:0}
+@media (max-width:860px){.services{grid-template-columns:1fr}}
+@media (min-width:861px) and (max-width:1100px){.services{grid-template-columns:repeat(2,1fr)}}
+
+/* linha vetorial que se traça */
+.flow-line{position:absolute;left:50%;top:0;width:2px;height:100%;pointer-events:none;z-index:0}
+.flow-line svg{position:absolute;left:-1px;top:0;width:2px;height:100%;overflow:visible}
+.flow-line path{fill:none;stroke:var(--accent-muted);stroke-width:2;stroke-dasharray:1 1;vector-effect:non-scaling-stroke}
+
+/* Onde atendemos */
+.coverage{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:48px}
+.coverage .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.pill{background:var(--panel);border:1px solid var(--border);color:var(--text-primary);padding:10px 18px;border-radius:999px;font-size:.92rem;font-weight:500}
+.map-wrap{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--border);aspect-ratio:4/3;background:var(--panel)}
+#map{position:absolute;inset:0}
+@media (max-width:860px){.coverage{grid-template-columns:1fr}.map-wrap{order:-1}}
+
+/* Por que a JR */
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.trust-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:28px 24px;position:relative;overflow:hidden}
+.trust-card::after{content:"";position:absolute;inset:-40% -40% auto auto;width:140px;height:140px;background:radial-gradient(circle,var(--accent-muted),transparent 70%);opacity:.6;animation:pulse 7s ease-in-out infinite;animation-delay:-2.3s}
+body.paused .trust-card::after{animation-play-state:paused}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:.75}}
+.trust-card .mono{color:var(--accent);margin-bottom:14px;display:block}
+.trust-card h3{font-size:1.15rem;margin-bottom:10px}
+.trust-card p{color:var(--text-secondary);font-size:.92rem;margin:0}
+@media (max-width:860px){.trust-grid{grid-template-columns:1fr}}
+
+/* Momento interativo: segurar para fechar o registro */
+.valve-interactive{margin-top:56px;background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:40px 32px;display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:center}
+.valve-dial{width:160px;height:160px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:none}
+.valve-dial svg{width:100%;height:100%;transform:rotate(-90deg)}
+.valve-dial circle.track{fill:none;stroke:var(--border);stroke-width:6}
+.valve-dial circle.fill{fill:none;stroke:var(--accent);stroke-width:6;stroke-linecap:round;stroke-dasharray:440;stroke-dashoffset:440;transition:stroke-dashoffset .12s linear}
+.valve-icon{position:absolute;width:52px;height:52px;color:var(--text-primary);transition:transform .3s var(--ease-out)}
+.valve-dial.active .valve-icon{transform:rotate(55deg)}
+.valve-label{position:absolute;bottom:-34px;left:50%;transform:translateX(-50%);white-space:nowrap;color:var(--text-secondary)}
+.valve-result h3{font-size:1.3rem;margin-bottom:10px;opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out)}
+.valve-result p{color:var(--text-secondary);opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease-out) .08s,transform .5s var(--ease-out) .08s;max-width:46ch}
+.valve-result.done h3,.valve-result.done p{opacity:1;transform:translateY(0)}
+@media (max-width:720px){.valve-interactive{grid-template-columns:1fr;text-align:center;justify-items:center}}
+
+/* FAQ */
+.faq{margin-top:48px;display:flex;flex-direction:column;gap:14px}
+.faq-item{background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:none;color:var(--text-primary);padding:20px 24px;font-size:1.02rem;font-weight:600;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:16px;font-family:inherit}
+.faq-q .plus{flex:none;width:22px;height:22px;position:relative}
+.faq-q .plus::before,.faq-q .plus::after{content:"";position:absolute;background:var(--accent);transition:transform .25s var(--ease-out)}
+.faq-q .plus::before{left:0;top:50%;width:100%;height:2px;transform:translateY(-50%)}
+.faq-q .plus::after{top:0;left:50%;width:2px;height:100%;transform:translateX(-50%)}
+.faq-item.open .plus::after{transform:translateX(-50%) rotate(90deg);opacity:0}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease-in-out)}
+.faq-a p{padding:0 24px 22px;color:var(--text-secondary);margin:0;font-size:.96rem}
+
+/* Formulário */
+.form-wrap{margin-top:48px;background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:36px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.85rem;color:var(--text-secondary)}
+.field input,.field textarea{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;color:var(--text-primary);font-family:inherit;font-size:.96rem}
+.field input:focus,.field textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+.form-wrap .btn{margin-top:22px}
+.form-success{display:none;text-align:center;padding:20px 0}
+.form-success.show{display:block}
+.form-success h3{margin-bottom:8px}
+.form-success p{color:var(--text-secondary)}
+@media (max-width:720px){.form-grid{grid-template-columns:1fr}}
+
+footer{padding:60px 8vw 40px;border-top:1px solid var(--border);margin-top:40px}
+.footer-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;max-width:1180px;margin:0 auto}
+.footer-brand{display:flex;align-items:center;gap:10px;font-family:'Big Shoulders Display';font-weight:800;font-size:1.1rem}
+.footer-brand .mark{height:24px;width:auto;object-fit:contain}
+footer .meta{color:var(--text-secondary);font-size:.88rem;margin-top:10px}
+footer .foot-links{display:flex;gap:22px}
+footer .foot-links a{text-decoration:none;color:var(--text-secondary);font-size:.9rem}
+footer .foot-links a:hover{color:var(--text-primary)}
+footer .copy{margin-top:40px;text-align:center;color:var(--text-secondary);font-size:.8rem;max-width:1180px;margin-left:auto;margin-right:auto}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;transition-delay:0s !important}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Pular para o conteúdo</a>
+<div class="ambient" aria-hidden="true"></div>
+
+<nav class="nav" id="nav">
+  <a href="#main" class="brand">
+    <img class="mark" src="assets/logo-mark-white.png" alt="" aria-hidden="true">
+    JR Instalações
+  </a>
+  <div class="links">
+    <a href="#servicos">Serviços</a>
+    <a href="#atendemos">Onde atendemos</a>
+    <a href="#faq">Dúvidas</a>
+    <a href="#orcamento">Contato</a>
+  </div>
+  <a class="cta" href="https://wa.me/5543996812715" target="_blank" rel="noopener">Pedir orçamento</a>
+</nav>
+
+<main id="main" tabindex="-1">
+
+  <!-- HERO -->
+  <section class="hero" id="hero" aria-label="Introdução">
+    <div class="stage" id="stage">
+      <div class="poster" id="poster" aria-hidden="true"></div>
+      <video id="heroVideo" aria-hidden="true" tabindex="-1" muted playsinline preload="none"></video>
+      <div class="scrim" aria-hidden="true"></div>
+
+      <div class="loader" id="loader" aria-hidden="true">
+        <svg class="ring" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3" opacity=".25"/><circle class="arc" cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="126" style="stroke-dashoffset:var(--ld,126)"/></svg>
+      </div>
+      <svg class="chevron" id="chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+      <div class="band align-left rise" id="band1" data-range="0.00,0.22">
+        <div class="band-inner">
+          <span class="kicker mono">JR Instalações Hidráulicas</span>
+          <h2 id="h1-text">Água tem um caminho certo.</h2>
+        </div>
+      </div>
+
+      <div class="band align-left drift" id="band2" data-range="0.24,0.50">
+        <div class="band-inner">
+          <h2 id="h2-text">A JR encontra esse caminho antes de abrir uma parede.</h2>
+        </div>
+      </div>
+
+      <div class="band align-left grid" id="band3" data-range="0.52,0.76" data-spread="0.5">
+        <div class="band-inner">
+          <h2 id="h3-text">Diagnóstico preciso. Orçamento fechado. Garantia no papel.</h2>
+        </div>
+      </div>
+
+      <div class="band align-left" id="band4" data-range="0.80,1.00">
+        <div class="band-inner">
+          <h2 id="h4-text">JR Instalações Hidráulicas</h2>
+          <p class="sub" id="h4-sub">Perto de você, quando você precisar.</p>
+          <div class="cta-row" id="h4-cta">
+            <a class="btn" href="https://wa.me/5543996812715" target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- static fallback for mobile / reduced motion -->
+      <div class="hero-static-label" id="staticLabel" style="display:none">
+        <span class="kicker mono">JR Instalações Hidráulicas</span>
+        <h2 style="text-shadow:var(--tshadow)">Diagnóstico preciso, orçamento fechado, garantia no papel.</h2>
+        <div class="cta-row" style="opacity:1;margin-top:22px">
+          <a class="btn" href="https://wa.me/5543996812715" target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="section-inner">
+      <span class="kicker mono in">Serviços</span>
+      <h2 class="section-title in">O que a JR resolve</h2>
+      <p class="section-lede in">Da instalação nova ao reparo urgente, sempre com diagnóstico antes de qualquer parede aberta.</p>
+      <div class="services stagger">
+        <div class="service-card in" style="--i:0">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="M12 4v16"/><circle cx="12" cy="12" r="3.2"/></svg></div>
+          <h3>Instalações hidráulicas</h3>
+          <p>Pontos de água, tubulações, pias, chuveiros, vasos e muito mais, instalados do jeito certo.</p>
+        </div>
+        <div class="service-card in" style="--i:1">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c4 5 7 8.5 7 12a7 7 0 1 1-14 0c0-3.5 3-7 7-12Z"/></svg></div>
+          <h3>Reparo de vazamentos</h3>
+          <p>Achou pingando, mancha na parede ou conta de água alta? A gente localiza e resolve.</p>
+        </div>
+        <div class="service-card in" style="--i:2">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h9a4 4 0 0 1 4 4v1.5"/><path d="M4 9V6a2 2 0 0 1 2-2h2"/><path d="M4 9v10"/><circle cx="18.5" cy="16.5" r="1.6"/></svg></div>
+          <h3>Torneiras, registros e válvulas</h3>
+          <p>Troca e conserto de torneiras, registros, válvulas de descarga e sifões.</p>
+        </div>
+        <div class="service-card in" style="--i:3">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4.3 16.7l3 3 5-5a4 4 0 0 0 5.4-5.4l-2.3 2.3-2-2 2.3-2.3Z"/></svg></div>
+          <h3>Manutenção preventiva</h3>
+          <p>Revisão das instalações para evitar surpresas e dor de cabeça lá na frente.</p>
+        </div>
+        <div class="service-card in" style="--i:4">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4.5" width="12" height="15" rx="4"/><path d="M6 11h12"/></svg></div>
+          <h3>Caixa d'água e reservatórios</h3>
+          <p>Instalação, ligação e ajustes para a água chegar com pressão em toda a casa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ONDE ATENDEMOS -->
+  <section id="atendemos">
+    <div class="section-inner">
+      <span class="kicker mono in">Onde atendemos</span>
+      <h2 class="section-title in">Perto de você, em toda a região</h2>
+      <div class="coverage">
+        <div class="in">
+          <p class="section-lede" style="margin-top:0">Atendimento em Londrina, Cambé, Ibiporã e cidades vizinhas. Não achou sua cidade? Fala com a gente e confere.</p>
+          <div class="pills">
+            <span class="pill">Londrina</span>
+            <span class="pill">Cambé</span>
+            <span class="pill">Ibiporã</span>
+            <span class="pill">Região</span>
+          </div>
+        </div>
+        <div class="map-wrap in">
+          <div id="map" role="img" aria-label="Mapa da região atendida: Londrina, Cambé e Ibiporã"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE A JR -->
+  <section id="confianca">
+    <div class="section-inner">
+      <span class="kicker mono in">Por que a JR</span>
+      <h2 class="section-title in">O que pesa na hora de escolher</h2>
+      <div class="trust-grid stagger">
+        <div class="trust-card in" style="--i:0">
+          <span class="mono">Sem susto na conta</span>
+          <h3>Orçamento fechado</h3>
+          <p>O valor é combinado antes do serviço começar, sem taxa escondida depois.</p>
+        </div>
+        <div class="trust-card in" style="--i:1">
+          <span class="mono">Sem quebra-quebra</span>
+          <h3>Diagnóstico antes de abrir</h3>
+          <p>Localizamos o problema com precisão antes de encostar em qualquer parede.</p>
+        </div>
+        <div class="trust-card in" style="--i:2">
+          <span class="mono">No papel</span>
+          <h3>Garantia do serviço</h3>
+          <p>Todo trabalho sai com garantia registrada, não só a palavra.</p>
+        </div>
+      </div>
+
+      <div class="valve-interactive in">
+        <div class="valve-dial" id="valveDial" role="button" tabindex="0" aria-label="Segure para fechar o registro">
+          <svg viewBox="0 0 160 160">
+            <circle class="track" cx="80" cy="80" r="70"></circle>
+            <circle class="fill" id="valveFill" cx="80" cy="80" r="70"></circle>
+          </svg>
+          <svg class="valve-icon" id="valveIcon" viewBox="0 0 24 24" fill="none" style="position:absolute"><path d="M12 3v4M4.2 7.8l2.8 2.8M19.8 7.8 17 10.6M3 15h4M17 15h4M7 17.8l2.8-2.8M16.2 17.8 13.4 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="15" r="3.2" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span class="valve-label mono">Segure para fechar</span>
+        </div>
+        <div class="valve-result" id="valveResult">
+          <h3>Vazamento resolvido.</h3>
+          <p>É esse tipo de interrupção que fazemos sumir, antes que vire conta de água alta ou parede infiltrada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-inner">
+      <span class="kicker mono in">Dúvidas</span>
+      <h2 class="section-title in">O que os clientes mais perguntam</h2>
+      <div class="faq">
+        <div class="faq-item in">
+          <button class="faq-q">Vocês cobram a visita mesmo se não resolver na hora?<span class="plus"></span></button>
+          <div class="faq-a"><p>A visita serve para diagnosticar o problema com precisão. O valor do orçamento é combinado com você antes de qualquer serviço ser executado, sem surpresa na conta.</p></div>
+        </div>
+        <div class="faq-item in">
+          <button class="faq-q">Precisam quebrar a parede para achar o vazamento?<span class="plus"></span></button>
+          <div class="faq-a"><p>Só depois de localizar a causa com precisão. Nada é aberto no escuro.</p></div>
+        </div>
+        <div class="faq-item in">
+          <button class="faq-q">O serviço tem garantia?<span class="plus"></span></button>
+          <div class="faq-a"><p>Sim, todo serviço sai com garantia combinada no orçamento, registrada e não só prometida de boca.</p></div>
+        </div>
+        <div class="faq-item in">
+          <button class="faq-q">Atendem fora do horário comercial?<span class="plus"></span></button>
+          <div class="faq-a"><p>O atendimento é combinado conforme a agenda disponível. Fala com a gente pelo WhatsApp e a gente confere o horário mais próximo possível.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO -->
+  <section id="orcamento">
+    <div class="section-inner">
+      <span class="kicker mono in">Contato</span>
+      <h2 class="section-title in">Pedir orçamento</h2>
+      <p class="section-lede in">Preenche os dados e o pedido abre direto no WhatsApp da JR, pronto para enviar.</p>
+
+      <div class="form-wrap in">
+        <form id="orcamentoForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-nome">Nome</label>
+              <input id="f-nome" name="nome" type="text" required>
+            </div>
+            <div class="field">
+              <label for="f-telefone">Telefone / WhatsApp</label>
+              <input id="f-telefone" name="telefone" type="tel" required>
+            </div>
+            <div class="field full">
+              <label for="f-local">Bairro / cidade</label>
+              <input id="f-local" name="local" type="text" placeholder="Ex: Gleba Palhano, Londrina" required>
+            </div>
+            <div class="field full">
+              <label for="f-problema">O que está acontecendo?</label>
+              <textarea id="f-problema" name="problema" rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn">Enviar pelo WhatsApp</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <h3>Prontinho.</h3>
+          <p>O WhatsApp abriu com sua mensagem. É só confirmar o envio por lá.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img class="mark" src="assets/logo-mark-white.png" alt="" aria-hidden="true">
+        JR Instalações Hidráulicas
+      </div>
+      <p class="meta">Londrina, Cambé, Ibiporã e região · (43) 99681-2715</p>
+    </div>
+    <div class="foot-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#atendemos">Onde atendemos</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="https://wa.me/5543996812715" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+  <p class="copy">© <span id="year"></span> JR Instalações Hidráulicas. Imagens ilustrativas, geradas digitalmente, em substituição gradual por fotos reais de obra.</p>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- visibility pause for ambient loops ---------- */
+document.addEventListener('visibilitychange', () => {
+  document.body.classList.toggle('paused', document.hidden);
+});
+
+/* ---------- scroll-entry choreography ---------- */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.2 });
+document.querySelectorAll('.stagger').forEach(el => io.observe(el));
+
+const io2 = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.in:not(.stagger .in)').forEach(el => io2.observe(el));
+// retire stagger delays once settled (hover fix)
+document.querySelectorAll('.stagger').forEach(group => {
+  group.addEventListener('transitionend', (e) => {
+    if (e.target.classList.contains('in')) group.classList.add('settled');
+  });
+});
+
+/* ---------- FAQ accordion ---------- */
+document.querySelectorAll('.faq-item').forEach(item => {
+  const btn = item.querySelector('.faq-q');
+  const ans = item.querySelector('.faq-a');
+  btn.addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => { o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null; });
+    if (!open) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+  });
+});
+
+/* ---------- valve hold interaction ---------- */
+(function(){
+  const dial = document.getElementById('valveDial');
+  const fill = document.getElementById('valveFill');
+  const result = document.getElementById('valveResult');
+  const CIRC = 2 * Math.PI * 70;
+  fill.style.strokeDasharray = CIRC;
+  let progress = 0, holding = false, raf = null, done = false;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function paint(){
+    fill.style.strokeDashoffset = CIRC * (1 - progress);
+    if (progress >= 1 && !done) {
+      done = true;
+      dial.classList.add('active');
+      result.classList.add('done');
+    } else if (progress < 1 && done) {
+      done = false;
+      dial.classList.remove('active');
+      result.classList.remove('done');
+    }
+  }
+  function tick(){
+    progress += holding ? 0.014 : -0.022;
+    progress = Math.max(0, Math.min(1, progress));
+    paint();
+    if ((holding && progress < 1) || (!holding && progress > 0)) {
+      raf = requestAnimationFrame(tick);
+    } else {
+      raf = null;
+    }
+  }
+  function start(){
+    if (reduced) { progress = 1; paint(); return; }
+    holding = true;
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  function stop(){
+    holding = false;
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  ['mousedown','touchstart'].forEach(ev => dial.addEventListener(ev, (e) => { e.preventDefault(); start(); }, {passive:false}));
+  ['mouseup','mouseleave','touchend','touchcancel'].forEach(ev => dial.addEventListener(ev, stop));
+  dial.addEventListener('keydown', (e) => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); start(); } });
+  dial.addEventListener('keyup', (e) => { if (e.key === ' ' || e.key === 'Enter') stop(); });
+  if (reduced) { progress = 1; paint(); }
+})();
+
+/* ---------- form -> WhatsApp ---------- */
+document.getElementById('orcamentoForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const nome = document.getElementById('f-nome').value.trim();
+  const telefone = document.getElementById('f-telefone').value.trim();
+  const local = document.getElementById('f-local').value.trim();
+  const problema = document.getElementById('f-problema').value.trim();
+  const msg = `Olá! Meu nome é ${nome}.\nTelefone: ${telefone}\nLocal: ${local}\nO que está acontecendo: ${problema}`;
+  const url = `https://wa.me/5543996812715?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank', 'noopener');
+  document.getElementById('orcamentoForm').style.display = 'none';
+  document.getElementById('formSuccess').classList.add('show');
+});
+
+/* ---------- map (Leaflet) ---------- */
+(function(){
+  const s1 = document.createElement('link');
+  s1.rel = 'stylesheet';
+  s1.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+  document.head.appendChild(s1);
+  const s2 = document.createElement('script');
+  s2.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s2.onload = initMap;
+  document.body.appendChild(s2);
+
+  function initMap(){
+    if (!window.L || !document.getElementById('map')) return;
+    const center = [-23.2850, -51.1500];
+    const map = L.map('map', { zoomControl: true, scrollWheelZoom: false }).setView(center, 10);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+    L.circle(center, { radius: 22000, color: '#2f8fe0', weight: 1.5, fillColor: '#2f8fe0', fillOpacity: 0.12 }).addTo(map);
+    const cities = [
+      { name: 'Londrina', pos: [-23.3103, -51.1628] },
+      { name: 'Cambé', pos: [-23.2761, -51.2789] },
+      { name: 'Ibiporã', pos: [-23.2636, -51.0486] }
+    ];
+    cities.forEach(c => L.marker(c.pos).addTo(map).bindTooltip(c.name, { permanent: true, direction: 'top', offset: [0,-8] }));
+  }
+})();
+</script>
+
+<!-- ===== HERO SCRUB ENGINE ===== -->
+<script>
+(function(){
+  const stage = document.getElementById('stage');
+  const video = document.getElementById('heroVideo');
+  const poster = document.getElementById('poster');
+  const hero = document.getElementById('hero');
+  const loader = document.getElementById('loader');
+  const chevron = document.getElementById('chevron');
+  const staticLabel = document.getElementById('staticLabel');
+  const bands = Array.from(document.querySelectorAll('.band')).map(el => {
+    const [a,b] = el.dataset.range.split(',').map(Number);
+    return { el, a, b, op: -1, k: -1, loaded: false };
+  });
+
+  const VIDEO_URL = 'assets/hero-scrub.mp4';
+  const POSTER_URL = 'assets/hero-poster.jpg';
+  const VIDEO_BYTES = 934581;
+
+  const GATES = [
+    '(max-width: 720px)',
+    '(orientation: portrait) and (max-width: 1024px)',
+    '(orientation: portrait) and (pointer: coarse)',
+    '(orientation: landscape) and (pointer: coarse) and (max-height: 560px)',
+    '(prefers-reduced-motion: reduce)'
+  ];
+
+  let scrubOn = false, heroOnScreen = false, target = 0, shown = 0, rafId = null, lastTick = 0;
+  let seekBusy = false, pendingTime = null, started = false, loadKStart = 0, blobLoaded = false;
+
+  const ioHero = new IntersectionObserver(es => { es.forEach(e => heroOnScreen = e.isIntersecting); }, { threshold: 0.01 });
+  ioHero.observe(hero);
+
+  function heroProgress(){
+    const r = hero.getBoundingClientRect();
+    const total = hero.offsetHeight - window.innerHeight;
+    if (total <= 0) return 0;
+    const p = (-r.top) / total;
+    return Math.max(0, Math.min(1, p));
+  }
+
+  function requestSeek(t){
+    if (!video.duration || isNaN(video.duration)) return;
+    if (seekBusy) { pendingTime = t; return; }
+    seekBusy = true;
+    try { video.currentTime = t; } catch(e) { seekBusy = false; }
+  }
+  video.addEventListener('seeked', () => {
+    seekBusy = false;
+    if (pendingTime !== null) { const t = pendingTime; pendingTime = null; requestSeek(t); }
+  });
+  video.addEventListener('error', () => { seekBusy = false; pendingTime = null; failVideo(); });
+
+  const smoothstep = (p,e0,e1) => { const t = Math.min(1, Math.max(0, (p-e0)/(e1-e0))); return t*t*(3-2*t); };
+
+  function updateCaptions(p){
+    bands.forEach((bnd, i) => {
+      const { a, b } = bnd;
+      const f = Math.min(0.02, (b-a)/3);
+      let op;
+      if (i === 0) op = 1 - smoothstep(p, b-f, b);
+      else if (i === bands.length-1) op = smoothstep(p, a, a+f);
+      else op = smoothstep(p, a, a+f) * (1 - smoothstep(p, b-f, b));
+      op = Math.max(0, Math.min(1, op));
+      const ramp = parseFloat(bnd.el.dataset.ramp) || Math.min(0.025, (b-a)*0.35);
+      let k = Math.max(0, Math.min(1, (p - a) / ramp));
+      if (i === 0) k = Math.max(k, loadKStart);
+      if (Math.abs(op - bnd.op) > 0.004) { bnd.el.style.opacity = op; bnd.op = op; }
+      if (Math.abs(k - bnd.k) > 0.004) { bnd.el.style.setProperty('--k', k.toFixed(4)); bnd.k = k; }
+    });
+    // last band's sub/cta
+    const last = bands[bands.length-1];
+    if (last) {
+      const lk = last.k;
+      const ks = Math.max(0, Math.min(1, (lk - 0.5) * 4));
+      const kb = Math.max(0, Math.min(1, (lk - 0.72) * 5));
+      last.el.style.setProperty('--ks', ks.toFixed(3));
+      last.el.style.setProperty('--kb', kb.toFixed(3));
+    }
+  }
+
+  function tick(now){
+    const dt = Math.min(100, now - (lastTick || now));
+    lastTick = now;
+    const k = 0.16;
+    shown += (target - shown) * (1 - Math.pow(1-k, dt/16.667));
+    if (Math.abs(target - shown) < 0.0005) { shown = target; rafId = null; lastTick = 0; }
+    else { rafId = requestAnimationFrame(tick); }
+    if (video.duration) requestSeek(shown * video.duration);
+    updateCaptions(shown);
+  }
+  function onScroll(){
+    target = heroProgress();
+    if (rafId === null && heroOnScreen) rafId = requestAnimationFrame(tick);
+  }
+
+  function failVideo(){
+    stage.classList.add('video-failed');
+  }
+
+  function startBlobFetch(){
+    if (started) return;
+    started = true;
+    loadHeroBlob().catch(failVideo);
+  }
+
+  async function loadHeroBlob(){
+    const ctrl = new AbortController();
+    let watchdog = setTimeout(() => ctrl.abort(), 20000);
+    let res;
+    try { res = await fetch(VIDEO_URL, { signal: ctrl.signal }); }
+    catch(e) { clearTimeout(watchdog); throw e; }
+    if (!res.ok) { clearTimeout(watchdog); throw new Error('video fetch failed'); }
+    const total = Number(res.headers.get('Content-Length')) || VIDEO_BYTES;
+    if (!res.body || !res.body.getReader){
+      const blob = await res.blob();
+      clearTimeout(watchdog);
+      finishBlob(blob);
+      return;
+    }
+    const reader = res.body.getReader();
+    const chunks = [];
+    let got = 0, lastRing = 0;
+    for(;;){
+      const { done, value } = await reader.read();
+      if (done) break;
+      clearTimeout(watchdog);
+      watchdog = setTimeout(() => ctrl.abort(), 20000);
+      chunks.push(value);
+      got += value.length;
+      const frac = Math.min(1, got/total);
+      const now = performance.now();
+      if (now - lastRing > 100 || frac === 1){
+        lastRing = now;
+        loader.style.setProperty('--ld', Math.round(126 * (1-frac)));
+      }
+    }
+    clearTimeout(watchdog);
+    finishBlob(new Blob(chunks));
+  }
+
+  function finishBlob(blob){
+    blobLoaded = true;
+    video.src = URL.createObjectURL(blob);
+    video.load();
+    video.addEventListener('canplay', () => {
+      requestSeek(heroProgress() * video.duration);
+      stage.classList.add('video-ready');
+    }, { once:true });
+  }
+
+  function initHeroOnce(){
+    poster.style.backgroundImage = `url('${POSTER_URL}')`;
+    const posterImg = new Image();
+    posterImg.onload = startBlobFetch;
+    posterImg.onerror = startBlobFetch;
+    posterImg.src = POSTER_URL;
+    setTimeout(startBlobFetch, 4000);
+  }
+
+  function enableScrub(){
+    staticLabel.style.display = 'none';
+    poster.style.opacity = '';
+    loader.style.display = '';
+    chevron.style.display = '';
+    stage.classList.remove('video-failed');
+    if (scrubOn) return; scrubOn = true;
+    initHeroOnce();
+    addEventListener('scroll', onScroll, { passive:true });
+    bands.forEach(b => { b.op = -1; b.k = -1; });
+    updateCaptions(heroProgress());
+    onScroll();
+  }
+  function disableScrub(){
+    scrubOn = false;
+    removeEventListener('scroll', onScroll);
+    if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+    staticLabel.style.display = 'block';
+    poster.style.backgroundImage = `url('assets/hero-ending.jpg')`;
+    poster.style.opacity = '1';
+    loader.style.display = 'none';
+    chevron.style.display = 'none';
+    bands.forEach(b => { b.el.style.opacity = 0; });
+  }
+  function applyHeroMode(){
+    if (GATES.some(q => matchMedia(q).matches)) disableScrub();
+    else enableScrub();
+  }
+  const MQLS = GATES.map(q => matchMedia(q));
+  MQLS.forEach(m => m.addEventListener('change', applyHeroMode));
+  applyHeroMode();
+})();
+</script>
+</body>
+</html>
